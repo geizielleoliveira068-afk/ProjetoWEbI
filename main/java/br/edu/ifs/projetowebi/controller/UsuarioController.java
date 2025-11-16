@@ -21,7 +21,7 @@ import java.util.List;
         @PostMapping
         public ResponseEntity<UsuarioModel> cadastrar(@RequestBody UsuarioModel usuario) {
             UsuarioModel novo = usuarioService.cadastrarUsuario(usuario);
-            return ResponseEntity.ok(novo);
+            return ResponseEntity.ok(novo);  
         }
 
         @GetMapping("/{id}")
