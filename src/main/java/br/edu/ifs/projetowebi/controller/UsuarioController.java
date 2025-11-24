@@ -41,7 +41,6 @@ public class UsuarioController {
     public ResponseEntity<List<UsuarioSaidaDTO>> listarTodos() {
         return ResponseEntity.ok(usuarioService.listarTodosUsuarios());
     }
-
    }
 
 
