@@ -36,11 +36,11 @@ public class ProgramaDePontosController {
    }
 
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<ProgramaDePontosSaidaDTO> atualizar(
-//            @PathVariable Long id, @Valid @RequestBody ProgramaDePontosSaidaDTO dto) {
-//        return ResponseEntity.ok(service.atualizarSaldo(id, dto.getSaldoPontos()));
-//    }
+    @PutMapping("/{id}")
+    public ResponseEntity<ProgramaDePontosSaidaDTO> atualizar(
+            @PathVariable Long id, @Valid @RequestBody ProgramaDePontosSaidaDTO dto) {
+        return ResponseEntity.ok(service.atualizarSaldo(id, dto.getSaldoPontos()));
+    }
 
 
     @DeleteMapping("/{id}")
