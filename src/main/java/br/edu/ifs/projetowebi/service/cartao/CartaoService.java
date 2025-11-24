@@ -17,7 +17,7 @@ public class CartaoService {
 
     public CartaoModel salvar(CartaoModel cartao) {
         if (cartao.getMultiplicadorPontos() == null) {
-            cartao.setMultiplicadorPontos(1.0); // Double, não BigDecimal
+            cartao.setMultiplicadorPontos(1.0);
         }
         return cartaoRepository.save(cartao);
     }
@@ -26,7 +26,7 @@ public class CartaoService {
         return cartaoRepository.findAll();
     }
 
-    // ✅ CORRIGIDO: Listar cartões por usuário
+    //Listar cartões por usuário
     public List<CartaoModel> listarPorUsuario(Long usuarioId) {
         return cartaoRepository.findByUsuarioId(usuarioId);
     }
