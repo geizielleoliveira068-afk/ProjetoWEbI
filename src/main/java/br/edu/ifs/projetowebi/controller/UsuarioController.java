@@ -1,7 +1,7 @@
 package br.edu.ifs.projetowebi.controller;
 
 
-import br.edu.ifs.projetowebi.dto.UsuarioSaidaDTO;
+import br.edu.ifs.projetowebi.service.usuario.dto.UsuarioSaidaDTO;
 import br.edu.ifs.projetowebi.model.UsuarioModel;
 import br.edu.ifs.projetowebi.service.usuario.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
