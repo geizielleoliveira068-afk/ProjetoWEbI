@@ -58,7 +58,6 @@ public class ProgramaDePontosController {
          if (pontos == null) {
              throw new IllegalArgumentException("Campo 'pontos' é obrigatório");
          }
-
          return ResponseEntity.ok(service.atualizarSaldo(id, pontos));
      }
 }
