@@ -64,6 +64,7 @@ public class ProgramaDePontosService {
                 new ProgramaDePontosSaidaDTO(programaDePontosModel.getId(),programaDePontosModel.getNome(),
                         programaDePontosModel.getSaldoPontos())).toList();
         }
+
     public void deletar(Long id) {
         if (!programaRepository.existsById(id)) {
             throw new NaoEncontradoException("Programa não encontrado");

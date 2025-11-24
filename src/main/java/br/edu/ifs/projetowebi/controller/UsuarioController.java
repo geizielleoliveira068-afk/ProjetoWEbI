@@ -30,8 +30,19 @@ public class UsuarioController {
     public ResponseEntity<UsuarioModel> buscarPorEmail(@PathVariable String email) {
         return ResponseEntity.ok(usuarioService.buscarPorEmail(email));
     }
+    @DeleteMapping("/id")
+    public ResponseEntity<UsuarioModel> remover(@PathVariable Long id) {
+        usuarioService.deletarPorId(id);
+        return ResponseEntity.noContent().build();
+    }
+    @GetMapping("id")
+    public ResponseEntity<UsuarioSaidaDTO> listarPorId() {
+        return ResponseEntity.ok((UsuarioSaidaDTO) usuarioService.listarTodosUsuarios());
+    }
 
-}
+
+   }
+
 
 
 
