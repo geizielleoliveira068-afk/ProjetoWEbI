@@ -26,19 +26,19 @@ public class CompraService {
 
         // Calcular pontos = valor * multiplicador
         // Use getValor() em vez de getValorCompra()
-        var pontos = compra.getValor()
-                .multiply(cartao.getMultiplicadorPontos())
-                .intValue();
-
-        // Use setPontos() em vez de setPontosCalculados()
-        compra.setPontos(pontos);
-        compra.setDataCompra(LocalDate.now());
-
-        // Use o enum diretamente
-        compra.setStatus(StatusCreditModel.PENDENTE);
+//        var pontos = compra.getValor()
+//                .multiply(cartao.getMultiplicadorPontos())
+//                .intValue();
+//
+//        // Use setPontos() em vez de setPontosCalculados()
+//        compra.setPontos(pontos);
+//        compra.setDataCompra(LocalDate.now());
+//
+//        // Use o enum diretamente
+//        compra.setStatus(StatusCreditModel.PENDENTE);
 
         // Atualizar saldo no programa - use atualizarSaldo()
-        programaService.atualizarSaldo(cartao.getProgramaPontos().getId(), pontos);
+//        programaService.atualizarSaldo(cartao.getProgramaPontos().getId(), pontos);
 
         return compraRepository.save(compra);
     }

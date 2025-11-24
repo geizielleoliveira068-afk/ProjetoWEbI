@@ -17,20 +17,18 @@ import java.util.List;
         @Autowired
         private CartaoService cartaoService;
 
-        @PostMapping
-        public ResponseEntity<CartaoModel> salvar(@RequestBody CartaoModel cartao) {
-            return ResponseEntity.ok(cartaoService.salvar(cartao));
-        }
-
-        @GetMapping("/{id}")
-        public ResponseEntity<List<CartaoModel>> listarPorUsuario(@PathVariable Long usuarioId) {
-            return ResponseEntity.ok(cartaoService.listarPorUsuario(usuarioId));
-        }
+//        @PostMapping
+//        public ResponseEntity<CartaoModel> salvar(@RequestBody CartaoModel cartao) {
+//            return ResponseEntity.ok(cartaoService.salvar(cartao));
+//        }
+//
+//        @GetMapping("/{id}")
+//        public ResponseEntity<List<CartaoModel>> listarPorUsuario(@PathVariable Long usuarioId) {
+//            return ResponseEntity.ok(cartaoService.listarPorUsuario(usuarioId));
+//        }
 
         @PutMapping("/{id}")
         public ResponseEntity<CartaoModel> atualizar(@PathVariable Long usuarioId, @RequestBody CartaoModel cartao) {
             return ResponseEntity.ok(cartao);
         }
      }
-
-

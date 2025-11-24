@@ -24,9 +24,9 @@ public class CompraModel {
     private LocalDate dataCompra;
 
     private LocalDate prazoCredito;
-
-    @Enumerated(EnumType.STRING)
-    private StatusCreditoModel statusCredito; // pendente | creditado
+//
+//    @Enumerated(EnumType.STRING)
+//    private StatusCreditoModel statusCredito; // pendente | creditado
 
     private String comprovanteUrl;
 
