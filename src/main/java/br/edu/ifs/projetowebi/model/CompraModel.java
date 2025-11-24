@@ -16,10 +16,11 @@ public class CompraModel {
 
     private String descricao;
     private BigDecimal valor;
+    private Integer pontos;
     private LocalDate dataCompra;
 
-//    @Enumerated(EnumType.STRING)
-//    private StatusCreditModel status;
+    @Enumerated(EnumType.STRING)
+    private StatusCreditModel status;
 
     @ManyToOne
     @JoinColumn(name = "cartao_id")

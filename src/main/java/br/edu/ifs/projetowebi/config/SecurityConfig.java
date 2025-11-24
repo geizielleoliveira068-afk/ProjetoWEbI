@@ -9,7 +9,6 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -31,11 +30,13 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/**").permitAll() // Login e registro públicos
-                        .requestMatchers(HttpMethod.GET, "/usuarios/**").authenticated() // GET precisa de auth
-                        .requestMatchers(HttpMethod.POST, "/usuarios").hasRole("ADMIN") // POST apenas admin
-                        .anyRequest().authenticated() // Resto precisa de auth
+                        .requestMatchers("/public/**").permitAll() // Endpoints públicos
+                        .requestMatchers("/programas-pontos/**").permitAll()
+                        .requestMatchers("/cartoes/**").permitAll()
+                        .requestMatchers("/usuarios/**").permitAll()
+                        .anyRequest().authenticated() // Resto precisa de autenticação
                 )
-                .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class); // ✅ DESCOMENTE quando JWT estiver pronto
 
         return http.build();
     }
@@ -43,11 +44,6 @@ public class SecurityConfig {
     @Bean
     public JwtAuthenticationFilter jwtAuthenticationFilter() {
         return new JwtAuthenticationFilter(tokenService(), userDetailsService());
-    }
-
-    @Bean
-    public TokenService tokenService() {
-        return new TokenService();
     }
 
     @Bean
@@ -63,6 +59,11 @@ public class SecurityConfig {
     @Bean
     public UserDetailsService userDetailsService() {
         return username -> usuarioRepository.findByEmail(username)
-                .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado"));
+                .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado: " + username));
+    }
+
+    @Bean
+    public TokenService tokenService() {
+        return new TokenService();
     }
 }

@@ -48,6 +48,6 @@ public class AuthController {
         Authentication auth = authManager.authenticate(authToken);
         String token = tokenService.gerarToken(auth);
 
-        return ResponseEntity.ok(new TokenDTO(token));
+        return ResponseEntity.ok(new TokenDTO(token, "Bearer"));
     }
 }

@@ -1,5 +1,6 @@
 package br.edu.ifs.projetowebi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
@@ -19,10 +20,12 @@ public class CartaoModel {
 
     @ManyToOne
     @JoinColumn(name = "programa_id") // Nome da coluna de foreign key
+    @JsonIgnoreProperties({"usuario"}) // ✅ Ignora o usuário dentro do programa
     private ProgramaDePontosModel programaPontos;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id") // Nome da coluna de foreign key
+    @JsonIgnoreProperties({"cartoes", "senhaHash"}) // ✅ Ignora campos problemático
     private UsuarioModel usuario;
 
     @Column(name = "multiplicador_pontos")
