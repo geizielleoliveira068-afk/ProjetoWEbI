@@ -1,4 +1,4 @@
-package br.edu.ifs.projetowebi.service;
+package br.edu.ifs.projetowebi.service.usuario;
 
 
 
