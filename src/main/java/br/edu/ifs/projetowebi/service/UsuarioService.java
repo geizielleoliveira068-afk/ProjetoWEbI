@@ -28,8 +28,8 @@ public class UsuarioService {
         usuario.setNome(dto.getNome());
         usuario.setEmail(dto.getEmail());
 
-        // Criptografar senha
-       // String senhaCriptografada = encoder.encode(dto.getSenha());
+//        // Criptografar senha
+//        String senhaCriptografada = encoder.encode(dto.getSenha());
         usuario.setSenhaHash(dto.getSenha());
 
         return usuarioRepository.save(usuario);

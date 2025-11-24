@@ -1,6 +1,6 @@
 package br.edu.ifs.projetowebi.service.cartao.form;
 
-import br.edu.ifs.projetowebi.model.BandeiraCartaoModel;
+//import br.edu.ifs.projetowebi.model.BandeiraCartaoModel;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -18,8 +18,8 @@ public class CartaoForm {
     @Length(min = 2, max = 100, message = "O nome do cartão deve ter entre 2 e 100 caracteres")
     private String nomeCartao;
 
-     @NotNull(message = "A bandeira do cartão é obrigatória")
-     private BandeiraCartaoModel bandeira;
+//     @NotNull(message = "A bandeira do cartão é obrigatória")
+//     private BandeiraCartaoModel bandeira;
 
     @NotNull(message = "O ID do programa de pontos é obrigatório")
     private Long programaId;

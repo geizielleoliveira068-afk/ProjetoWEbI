@@ -27,11 +27,11 @@ public class UsuarioModel {
     @Column(nullable = false)
     private String senhaHash; // senha criptografada
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<CartaoModel> cartoes;
-
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<CompraModel> compras;
+//    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<CartaoModel> cartoes;
+//
+//    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<CompraModel> compras;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProgramaDePontosModel> programasDePontos;
