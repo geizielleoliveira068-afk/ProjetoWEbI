@@ -1,12 +1,10 @@
 package br.edu.ifs.projetowebi.model;
 
-
-
-
 import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+
 
 @Data
 @Entity
@@ -26,7 +24,7 @@ public class CompraModel {
     private LocalDate prazoCredito;
 
     @Enumerated(EnumType.STRING)
-    private StatusCreditoModel statusCredito; // pendente | creditado
+    private StatusCreditModel statusCredito; // pendente | creditado
 
     private String comprovanteUrl;
 
