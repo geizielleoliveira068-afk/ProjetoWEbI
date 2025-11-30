@@ -5,7 +5,6 @@ import lombok.Data;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-
 @Data
 @Entity
 @Table(name = "compras")
@@ -22,9 +21,9 @@ public class CompraModel {
     private LocalDate dataCompra;
 
     private LocalDate prazoCredito;
-
-    @Enumerated(EnumType.STRING)
-    private StatusCreditModel statusCredito; // pendente | creditado
+//
+//    @Enumerated(EnumType.STRING)
+//    private StatusCreditoModel statusCredito; // pendente | creditado
 
     private String comprovanteUrl;
 
